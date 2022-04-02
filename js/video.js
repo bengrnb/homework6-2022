@@ -1,7 +1,7 @@
 var video = document.querySelector("#player1");
 
 window.addEventListener("load", function() {
-	console.log("Good job opening the window")
+	// console.log("Good job opening the window")
 	video.autoplay = false;
 	video.loop = false;
 });
@@ -18,26 +18,29 @@ document.querySelector("#pause").addEventListener("click", function() {
 });
 
 document.querySelector("#slower").addEventListener("click", function() {
-	console.log("Slow Video");
+	// console.log("Slow Video");
 	video.playbackRate = video.playbackRate *.95;
 	console.log(video.playbackRate);
 });
 
 document.querySelector("#faster").addEventListener("click", function() {
-	console.log("Speed Video");
+	// console.log("Speed Video");
 	video.playbackRate = video.playbackRate / .95;
 	console.log(video.playbackRate);
 });
 
 document.querySelector("#skip").addEventListener("click", function() {
-	console.log("Skip Video");
-	video.currentTime += 15
-	console.log(video.ended)
-	if (video.ended) {
+	// console.log("Skip Video");
+	console.log("Original location " + video.currentTime);
+	// video.currentTime += 15
+	// console.log(video.duration)
+	if (video.currentTime + 15 > video.duration) {
 		video.currentTime = 0
-		video.play()
 	}
-	console.log(video.currentTime);
+	else {
+		video.currentTime += 15
+	}
+	console.log("New location " + video.currentTime);
 });
 
 
